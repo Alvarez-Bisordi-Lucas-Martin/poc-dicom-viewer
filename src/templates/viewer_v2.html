@@ -1,0 +1,109 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    	<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Papaya Viewer V2</title>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+        <link rel="stylesheet" href="{% static 'papaya/src/css/base.css' %}">
+        <link rel="stylesheet" href="{% static 'papaya/src/css/sidenav.css' %}">
+        <link rel="stylesheet" href="{% static 'papaya/src/css/ui/toolbar.css' %}">
+        <link rel="stylesheet" href="{% static 'papaya/src/css/ui/menu.css' %}">
+        <link rel="stylesheet" href="{% static 'papaya/src/css/ui/dialog.css' %}">
+        <link rel="stylesheet" href="{% static 'papaya/src/css/utilities/nojs.css' %}">
+        <link rel="stylesheet" href="{% static 'papaya/src/css/utilities/unsupported.css' %}">
+        <link rel="stylesheet" href="{% static 'papaya/src/css/viewer/viewer.css' %}">
+
+        <script src="{% static 'papaya/src/js/data/sample-image.js' %}"></script>
+        <script src="{% static 'papaya/src/js/data/talairach-atlas-image.js' %}"></script>
+        <script src="{% static 'papaya/src/js/data/talairach-atlas.js' %}"></script>
+
+        <script src="{% static 'papaya/lib/base64-binary.js' %}"></script>
+        <script src="{% static 'papaya/lib/bowser.js' %}"></script>
+        <script src="{% static 'papaya/lib/daikon.js' %}"></script>
+        <script src="{% static 'papaya/lib/nifti-reader.js' %}"></script>
+        <script src="{% static 'papaya/lib/jquery.js' %}"></script>
+        <script src="{% static 'papaya/lib/numerics.js' %}"></script>
+        <script src="{% static 'papaya/lib/pako-inflate.js' %}"></script>
+        <script src="{% static 'papaya/lib/gl-matrix.js' %}"></script>
+        <script src="{% static 'papaya/lib/gifti-reader.js' %}"></script>
+        <script src="{% static 'papaya/lib/GLU.js' %}"></script>
+
+        <script src="{% static 'papaya/src/js/constants.js' %}"></script>
+
+        <script src="{% static 'papaya/src/js/utilities/array-utils.js' %}"></script>
+        <script src="{% static 'papaya/src/js/utilities/math-utils.js' %}"></script>
+        <script src="{% static 'papaya/src/js/utilities/object-utils.js' %}"></script>
+        <script src="{% static 'papaya/src/js/utilities/platform-utils.js' %}"></script>
+        <script src="{% static 'papaya/src/js/utilities/string-utils.js' %}"></script>
+        <script src="{% static 'papaya/src/js/utilities/url-utils.js' %}"></script>
+
+        <script src="{% static 'papaya/src/js/core/coordinate.js' %}"></script>
+        <script src="{% static 'papaya/src/js/core/point.js' %}"></script>
+
+        <script src="{% static 'papaya/src/js/volume/header.js' %}"></script>
+        <script src="{% static 'papaya/src/js/volume/imagedata.js' %}"></script>
+        <script src="{% static 'papaya/src/js/volume/imagedescription.js' %}"></script>
+        <script src="{% static 'papaya/src/js/volume/imagedimensions.js' %}"></script>
+        <script src="{% static 'papaya/src/js/volume/imagerange.js' %}"></script>
+        <script src="{% static 'papaya/src/js/volume/imagetype.js' %}"></script>
+        <script src="{% static 'papaya/src/js/volume/nifti/header-nifti.js' %}"></script>
+        <script src="{% static 'papaya/src/js/volume/dicom/header-dicom.js' %}"></script>
+        <script src="{% static 'papaya/src/js/volume/orientation.js' %}"></script>
+        <script src="{% static 'papaya/src/js/volume/transform.js' %}"></script>
+        <script src="{% static 'papaya/src/js/volume/volume.js' %}"></script>
+        <script src="{% static 'papaya/src/js/volume/voxeldimensions.js' %}"></script>
+        <script src="{% static 'papaya/src/js/volume/voxelvalue.js' %}"></script>
+
+        <script src="{% static 'papaya/src/js/surface/surface.js' %}"></script>
+        <script src="{% static 'papaya/src/js/surface/surface-gifti.js' %}"></script>
+        <script src="{% static 'papaya/src/js/surface/surface-mango.js' %}"></script>
+        <script src="{% static 'papaya/src/js/surface/surface-created.js' %}"></script>
+
+        <script src="{% static 'papaya/src/js/ui/dialog.js' %}"></script>
+        <script src="{% static 'papaya/src/js/ui/menu.js' %}"></script>
+        <script src="{% static 'papaya/src/js/ui/menuitem.js' %}"></script>
+        <script src="{% static 'papaya/src/js/ui/menuitemcheckbox.js' %}"></script>
+        <script src="{% static 'papaya/src/js/ui/menuitemradiobutton.js' %}"></script>
+        <script src="{% static 'papaya/src/js/ui/menuitemfilechooser.js' %}"></script>
+        <script src="{% static 'papaya/src/js/ui/menuitemrange.js' %}"></script>
+        <script src="{% static 'papaya/src/js/ui/menuitemslider.js' %}"></script>
+        <script src="{% static 'papaya/src/js/ui/menuitemspacer.js' %}"></script>
+        <script src="{% static 'papaya/src/js/ui/toolbar.js' %}"></script>
+
+        <script src="{% static 'papaya/src/js/viewer/atlas.js' %}"></script>
+        <script src="{% static 'papaya/src/js/viewer/colortable.js' %}"></script>
+        <script src="{% static 'papaya/src/js/viewer/display.js' %}"></script>
+        <script src="{% static 'papaya/src/js/viewer/preferences.js' %}"></script>
+        <script src="{% static 'papaya/src/js/viewer/screenslice.js' %}"></script>
+        <script src="{% static 'papaya/src/js/viewer/screensurface.js' %}"></script>
+        <script src="{% static 'papaya/src/js/viewer/screenvol.js' %}"></script>
+        <script src="{% static 'papaya/src/js/viewer/viewer.js' %}"></script>
+        <script src="{% static 'papaya/src/js/viewer/viewerTools.js' %}"></script>
+
+        <script src="{% static 'papaya/src/js/main.js' %}"></script>
+
+    	<script type="text/javascript">
+            const dicom_base64 = '{{ dicom_base64|safe }}';
+
+            var papayaLoadableImages = [
+               { nicename: 'Dicom file', name: 'dicom_base64', encode: dicom_base64 }
+            ];
+
+            var params = {
+                encodedImages: ['dicom_base64'],
+                imageTools: true,
+                showOverlays: false
+            };
+        </script>
+	</head>
+
+	<body>
+		<div class="papaya" data-params="params"></div>
+	</body>
+</html>
